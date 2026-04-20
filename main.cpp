@@ -54,27 +54,8 @@ int main(){
 			cout << "The result is " << d << endl;
 			valid = true;
 		}
-		catch(const InvalidInput& e){
-			cerr << e.what() << endl;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		}
-		catch(const DivByZero& e){
-			cerr << e.what() << endl;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		}
-		catch(const out_of_range& e){
-			cerr << e.what() << endl;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		}
-		catch(const bad_alloc& e){
-			cerr << "Memory allocation failed: " << e.what() << endl;
-			valid = true;  // Exit on memory error
-		}
-		catch(...){
-			cerr << "Unknown error" << endl;
+		catch(exception &e){
+			cout << e.what() << endl;
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
